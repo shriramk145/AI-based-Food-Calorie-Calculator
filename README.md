@@ -1,116 +1,254 @@
 
-# Nutrimeter
+## ✅ **Project Title**
 
-Nutrimeter is a one stop solution for all health related information and to track your daily calories so It helps you to focus on your nutrition as a whole. it's a dynamic and responsive, full stack website built with react js, mongodb, express and nodejs.
+**AI-Based Food Calorie Tracking System**
 
+---
 
-## 🚀 About us
-Hi, we as a team of 5 members studied from Masai School, learning full stack development and this project was built by us in cunstruct week to put all the skills in practice.
-All team members name:
+## ⚙️ **1. Frontend Development**
 
- - Aman deep  https://github.com/amandk5
- - Ghanisht khurana  https://github.com/Ghanishtkhurana
- - Harsh Upadhayay  https://github.com/harshu878
- - Madhavi-Teegireddy  https://github.com/Madhavi-Teegireddy
- - Shrikant Jawla  https://github.com/ShrikantJawla
+### 🔹 Purpose:
 
+* Provides the interface where users can upload food images and view calorie estimation results.
 
+### 🔹 Technologies:
 
-## Demo
+* **HTML5 & CSS3**:
+  For structuring the web pages and designing the layout, including buttons, image upload fields, result displays, and responsiveness.
 
-https://nutrimeter.vercel.app/
+* **JavaScript**:
+  To handle form validation, image preview before upload, and asynchronous communication (AJAX) with the backend.
 
+* **React.js (Recommended)**:
 
-## Below are some of the Screenshots with features:
+  * Component-based structure for reusable UI elements.
+  * Efficient state management (e.g., using Redux).
+  * Smooth interaction (image preview, loading indicators).
+  * Provides a better user experience with single-page application (SPA) behavior.
 
-- HomePage
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/home.png?raw=true)
+---
 
-- For Healthcare Professionals Page:
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Enterprise%20page.png?raw=true)
+## ⚙️ **2. Backend Development**
 
-- Blog page:
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Blog%20page.png?raw=true)
+### 🔹 Purpose:
 
-- Support page:
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/chrome_rrhx84B0zu.png?raw=true)
+* Acts as the middleware between the frontend and the AI model.
 
-- Signup page:-> it contain sign up fuctionality done with nodeJs and stored data in mongo db.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Sign%20up%20page.png?raw=true)
+### 🔹 Technologies:
 
-- Login page:-> it contain Login fuctionality done with nodeJs and stored data in mongo db.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Login%20page.png?raw=true)
+* **Python Flask Framework**:
 
-- It is the heart of Nutrimeter where user can track his daywise calores by creating custom nutritious diet: 
+  * Lightweight framework to implement REST APIs.
+  * Endpoints:
 
-- Main page of Calorie tracker
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/1.png?raw=true)
+    * `POST /upload`: Receives uploaded image.
+    * `GET /calories/{user_id}`: Returns calorie history.
+    * `POST /predict`: Returns prediction result.
+  * Handles image preprocessing and invokes the AI model.
+  * Returns JSON responses to the frontend with the food type and calorie estimate.
 
-- Has more than 5,000 products to be added in day wise diet to manage weight: 
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/2.png?raw=true)
+* **Flask Extensions (Optional)**:
 
+  * Flask-RESTful: For building REST APIs in a structured way.
+  * Flask-CORS: To allow frontend-backend interaction when hosted on different domains.
 
--  **amount of Carb, protein, and fat will be displayed at the time of adding product in diet bucket**
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/4.png?raw=true)
+---
 
-Added product in daily diet bucket:
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/5.png?raw=true)
+## ⚙️ **3. AI / Deep Learning Model**
 
-Graphical analysis of total daily calories added in bucket
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/6.png?raw=true)
+### 🔹 Purpose:
 
-- total calories consumed and rquired for that day with other macro nutrients present in diet:
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/7.png?raw=true)
+* Classifies food from an image and estimates calories.
 
-- Some micro and macro nutrients presents in whole diet for that particular day.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/8.png?raw=true)
+### 🔹 Technologies & Approach:
 
-- Sepration of data from seprate users--->
-### User1
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/10.png?raw=true)
+* **Deep Learning Framework**:
 
-### User2
-- Sepration of data from seprate users.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/9.png?raw=true)
+  * **TensorFlow / Keras** or **PyTorch**:
+    Used for model development, training, and inference.
 
+* **Model Architecture**:
 
-- Help Page.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Help%20page.png?raw=true)
+  * **Convolutional Neural Network (CNN)**:
+    Efficient for image classification tasks.
 
-- plan page.
-![App Screenshot](https://github.com/harshu878/nutrimeter/blob/main/nutrimeter%20screenshots/Plans.png?raw=true)
+  * Common models used:
 
+    * ResNet50
+    * MobileNetV2
+    * EfficientNet
+    * Custom CNN for lightweight solutions.
 
+* **Transfer Learning**:
 
+  * Pretrained on **ImageNet**.
+  * Fine-tuned on food image dataset (e.g., **Food-101 Dataset**).
 
+* **Dataset**:
 
-## Tech Stack
+  * **Food-101 Dataset**:
+    Contains 101 food classes with 101,000 images.
 
-- **Client:** React, Styled-Components and Chakra-UI for Styles
+  * Custom Dataset (optional):
 
-- **Server:** NodeJS, Express, Mongo-DB for database
+    * Collect own dataset of food images with calorie labels.
+    * Ensure dataset diversity to avoid bias (different lighting, angles, portion sizes).
 
+---
 
-## Features
+## ⚙️ **4. Image Preprocessing**
 
-- Token based authentication.
+### 🔹 Purpose:
 
-- Each user has seprate data connected to his/her profile.
+* Prepares the uploaded image for model inference.
 
-- Total amount of calories will saved day wise and displayed in graphical format.
+### 🔹 Tools & Libraries:
 
-- Displayed macro and micro nutrients composition.
+* **OpenCV**:
 
-- Complete Rest-API for authentication, login, signup functionality and rest other things. 
+  * Resizing the image to model input size (e.g., 224×224 pixels).
+  * Normalizing pixel values to \[0,1].
+  * Optional filtering (noise reduction, brightness adjustments).
 
+* **PIL (Pillow)**:
 
+  * Alternative to OpenCV for simple image manipulation.
 
-## Author
+* **Normalization Example**:
 
-- [@Shrikant-Jawla](https://github.com/ShrikantJawla)
+  ```python
+  image = image / 255.0  # Normalize pixel values
+  ```
 
+---
 
-## Feedback
+## ⚙️ **5. Calorie Estimation Algorithm**
 
-If you have any feedback, please reach out to us at shrikantjawla@gmail.com
+### 🔹 Workflow:
+
+1. Food Type Prediction → e.g., “Pasta”
+2. Portion Estimation (Optional):
+
+   * Use object detection models (like YOLOv5) to estimate portion size (bounding box area).
+3. Calorie Lookup Table:
+
+   * Example mapping:
+
+     | Food Item | Avg Calories per 100g |
+     | --------- | --------------------- |
+     | Pasta     | 131 kcal              |
+     | Salad     | 50 kcal               |
+     | Pizza     | 266 kcal              |
+4. Final Calculation:
+
+   * Calories = portion\_size\_in\_grams × calorie\_per\_100g ÷ 100
+
+---
+
+## ⚙️ **6. Database**
+
+### 🔹 Purpose:
+
+* Store user profiles, food logs, calorie history.
+
+### 🔹 Technologies:
+
+* **SQLite** (for small projects)
+  Simple and easy-to-integrate relational DB for storing data locally.
+
+* **PostgreSQL / MySQL** (for larger production-level apps)
+  Scalable relational DB system.
+
+* **MongoDB** (optional, NoSQL):
+  For flexible schema designs (useful if food items have varying metadata).
+
+### 🔹 Data Model Example (Relational):
+
+| Column            | Type     | Description                |
+| ----------------- | -------- | -------------------------- |
+| user\_id          | INT (PK) | Unique user identifier     |
+| food\_name        | TEXT     | Name of detected food      |
+| calorie\_estimate | FLOAT    | Estimated calories in kcal |
+| image\_path       | TEXT     | Path to the stored image   |
+| timestamp         | DATETIME | Date & time of entry       |
+
+---
+
+## ⚙️ **7. API Integration**
+
+### 🔹 REST API Design:
+
+* Standard JSON API for client-server communication.
+
+#### Example Request:
+
+```http
+POST /predict
+Content-Type: multipart/form-data
+image: [binary_image_file]
+```
+
+#### Example Response:
+
+```json
+{
+  "food_name": "Pizza",
+  "calorie_estimate": 266,
+  "confidence": 0.92
+}
+```
+
+---
+
+## ⚙️ **8. Deployment**
+
+### 🔹 Tools:
+
+* **Docker**:
+
+  * Containerize the whole app (frontend, backend, AI model).
+  * Ensures consistency across development, testing, and production.
+
+* **Cloud Deployment Options**:
+
+  * **Heroku**: Easy deployment for Flask apps.
+  * **AWS EC2 / Lambda**: Scalable server infrastructure.
+  * **Google Cloud Platform (GCP)**: Deploy using App Engine or Compute Engine.
+
+---
+
+## ⚙️ **9. Optional Enhancements**
+
+### ➤ User Authentication:
+
+* JWT tokens or OAuth2 for login and secure API endpoints.
+
+### ➤ Data Visualization:
+
+* Use **Chart.js / Recharts** to display calorie consumption over time.
+
+### ➤ Notifications:
+
+* Email or in-app reminders to log meals regularly.
+
+### ➤ Voice Recognition Integration:
+
+* Speech-to-Text API to allow food input via voice commands.
+
+---
+
+## ✅ **Complete System Workflow**
+
+1. User uploads a food image from the frontend.
+2. The image is sent via HTTP request to the Flask backend.
+3. Backend performs image preprocessing (resize, normalize).
+4. Processed image is sent to the CNN model for inference.
+5. Model returns a food type prediction with confidence score.
+6. Calorie is estimated using a lookup table or regression calculation.
+7. Result (food name + estimated calories + confidence) is returned to the frontend.
+8. The food entry is saved in the database for future tracking.
+9. User views results and can see history or trends in calories.
+
+---
+
 
